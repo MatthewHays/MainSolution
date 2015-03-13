@@ -42,6 +42,7 @@ namespace AviFileRename
             name = name.Replace("[eng]", "");
             name = name.Replace("-axxo", "");
             name = name.Replace("-lol", "");
+            name = name.Replace("-2hd", "");
             name = name.Replace("-killers", "");
             name = name.Replace("ettv", "");
             name = name.Replace("webrip", "");
