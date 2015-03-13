@@ -1,5 +1,0 @@
-C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\EntityClientServerLib\bin\Release\ClientServerLib.dll
-C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\EntityClientServerLib\bin\Release\ClientServerLib.pdb
-C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\EntityClientServerLib\obj\Release\EntityClientServerLib.csprojResolveAssemblyReference.cache
-C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\EntityClientServerLib\obj\Release\ClientServerLib.dll
-C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\EntityClientServerLib\obj\Release\ClientServerLib.pdb
