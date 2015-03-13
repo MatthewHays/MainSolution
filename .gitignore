@@ -1,6 +1,7 @@
 *.dll
 *.exe
+*.suo
+*.cache
 *.g.i.cs
 bin/
 obj/
-*.suo

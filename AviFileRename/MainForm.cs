@@ -60,6 +60,8 @@ namespace AviFileRename
                     Match match = reg.Match(file.Name);*/
 
                     string fileName = Path.GetFileNameWithoutExtension(file.Name);
+                    if (fileName.ToLower().Contains("sample"))
+                        continue;
 
                     EditFileName editFileName = new EditFileName(fileName, file.DirectoryName, _sourceTextBox.Text);
 
