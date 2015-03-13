@@ -1,0 +1,149 @@
+﻿<Controls:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfMovieDB"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        mc:Ignorable="d" x:Class="WpfMovieDB.MainWindow"
+        ShowIconOnTitleBar="True"
+        Title="MovieDB" Height="900" Width="917.234" Icon="Icon.ico">
+    <Window.DataContext>
+        <local:MovieViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MaxHeight="380" />
+            <RowDefinition Height="Auto"  />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Image Source ="{Binding SelectedItem.CoverArtConverted, IsAsync=True, ElementName=_listView, FallbackValue=\\\\SERVER\\Videos\\MovieData\\Blank.jpg}" 
+               Width="260" Height="360" Grid.Column="0" Grid.Row="0" 
+               HorizontalAlignment="Stretch" Margin="6" Stretch="Fill" 
+               VerticalAlignment="Top" />        
+
+        <Grid Grid.Column="1" Grid.Row="0" Margin="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Name"   HorizontalAlignment="Right" VerticalAlignment="Top" Margin="2" FontWeight="Bold"/>
+            <TextBlock Grid.Row="1" Text="Year"   HorizontalAlignment="Right" VerticalAlignment="Top" Margin="2" FontWeight="Bold"/>
+            <TextBlock Grid.Row="2" Text="Plot"   HorizontalAlignment="Right" VerticalAlignment="Top" Margin="2" FontWeight="Bold"/>
+            <TextBlock Grid.Row="3" Text="Genres" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="2" FontWeight="Bold"/>
+            <TextBlock Grid.Row="4" Text="Actors" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="2" FontWeight="Bold"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding SelectedItem.MovieName, ElementName=_listView}"   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2" />
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding SelectedItem.Year, ElementName=_listView}"        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2" />
+            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding SelectedItem.Description, ElementName=_listView}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2" TextWrapping = "Wrap" MaxHeight="100" TextAlignment="Justify"/>
+            <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding SelectedItem.Genres, ElementName=_listView}"      HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2" TextWrapping = "Wrap"/>
+            <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding SelectedItem.Cast, ElementName=_listView}"        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2" TextWrapping = "Wrap"/>
+            
+            <UniformGrid Grid.Column="1" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="200" Rows="1" Columns="2">
+                <Button Content="Refresh" Margin="6" Click="RefreshButton_Click"/>
+                <Button Content="Save" Margin="6"  Click="SaveButton_Click"/>
+            </UniformGrid>
+            <TextBlock Text="{Binding FileMovies.Count}" Grid.Row="5" VerticalAlignment="Bottom" />
+        </Grid>
+
+        <TextBox Grid.Row="1" Grid.ColumnSpan="2" Margin="6,0,6,0" 
+                 TextChanged="TextBox_TextChanged" d:IsLocked="True" 
+                 Controls:TextboxHelper.ClearTextButton="True" 
+                 Controls:TextboxHelper.Watermark="Search"/>
+        
+        <Border Margin="6"
+                BorderBrush="LightGray"
+                BorderThickness="1" 
+                Grid.ColumnSpan="2" 
+                Grid.Row="2" 
+                Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Height="15" Grid.Row="0">
+                    <TextBlock Width="50"  Text="FileDate"   FontSize="8" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                    <TextBlock Width="300" Text="MovieName"  FontSize="8" VerticalAlignment="Bottom" />
+                    <TextBlock Width="20"  Text="Part"       FontSize="8" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                    <TextBlock Width="50"  Text="Year"       FontSize="8" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                    <TextBlock Width="30"  Text="IMDB"       FontSize="8" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                    <TextBlock Width="30"  Text="OMDB"       FontSize="8" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                    <TextBlock Width="30"  Text="Netflix"    FontSize="8" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                    <TextBlock Width="30"  Text="Metacritic" FontSize="8" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                    <TextBlock Width="30"  Text="Average"    FontSize="8" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                    <TextBlock Width="250" Text="Genres"     FontSize="8" VerticalAlignment="Bottom" />
+                    <TextBlock Width="30"  Text="Watched"    FontSize="8" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                    <TextBlock Width="30"  Text="JenWants"   FontSize="8" VerticalAlignment="Bottom" TextAlignment="Center"/>
+                </StackPanel>
+                <ListBox Grid.Row="1"
+                         ItemsSource="{Binding FileMovies}" 
+                         x:Name="_listView"
+                         Margin="1"
+                         SelectionMode="Single" 
+                         VirtualizingStackPanel.IsVirtualizing="True" 
+                         VirtualizingStackPanel.VirtualizationMode="Recycling"
+                         ContextMenuOpening="ListView_ContextMenuOpening"
+                         MouseDoubleClick="ListView_MouseDoubleClick" 
+                         HorizontalContentAlignment="Stretch" 
+                         VerticalContentAlignment="Stretch">
+            <ListBox.Resources>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding DataDownloaded}" Value="false">
+                            <Setter Property="FontStyle" Value="Italic" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.Resources>
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Lookup" Click="LookupItem_Click"/>
+                    <MenuItem Header="Lookup All" Click="LookupAllItem_Click"/>
+                    <MenuItem Header="Alternate Lookup" Click="AlternateLookupItem_Click"/>
+                    <MenuItem Header="Remove Movie Data" Click="RemoveDataItem_Click"/>
+                    <MenuItem Header="Rename File" Click="RenameItem_Click"/>
+                    <MenuItem Header="Manually Edit" Click="EditItem_Click"/>
+                    <MenuItem Header="Delete File" Click="DeleteItem_Click"/>
+                    <MenuItem Header="Update All Ratings" Click="UpdateAllRatings_Click"/>
+                    <MenuItem Header="Change File Date" Click="ChangeFileDate_Click"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+            <ListBox.ItemTemplate>
+                    <DataTemplate >
+                        <StackPanel Orientation="Horizontal" Height="18">
+                                <TextBlock Width="50"   Text="{Binding FileDate, StringFormat=\{0:MM/yyyy\}}" TextAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Width="300" Text="{Binding MovieName}" TextAlignment="Left" FontWeight="Bold" VerticalAlignment="Center"/>
+                                <TextBlock Width="20"  Text="{Binding Part}"  TextAlignment="Center" FontSize="8" VerticalAlignment="Center"/>
+                                <TextBlock Width="50" Text="{Binding Year}"  TextAlignment="Center"  VerticalAlignment="Center"/>
+                                <TextBlock Width="30" Text="{Binding IMDBRating, StringFormat=\{0:0.0\}}" TextAlignment="Center" FontSize="8"  VerticalAlignment="Center"/>
+                                <TextBlock Width="30" Text="{Binding OMDBRating, StringFormat=\{0:0.0\}}" TextAlignment="Center" FontSize="8"  VerticalAlignment="Center"/>
+                                <TextBlock Width="30" Text="{Binding NetflixRating, StringFormat=\{0:0.0\}}" TextAlignment="Center" FontSize="8"  VerticalAlignment="Center"/>
+                                <TextBlock Width="30" Text="{Binding MetacriticRating, StringFormat=\{0:0.0\}}" TextAlignment="Center" FontSize="8"  VerticalAlignment="Center"/>
+                                <TextBlock Width="30" Text="{Binding AverageRating, StringFormat=\{0:0.0\}}" TextAlignment="Center"  VerticalAlignment="Center"/>
+                                <TextBlock Width="250" Text="{Binding Genres}"  VerticalAlignment="Center"/>
+                                <CheckBox  Width="30" IsChecked="{Binding Watched}" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
+                                <CheckBox  Width="30" IsChecked="{Binding JenWantsToWatch}"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            </Grid>
+        </Border>
+        
+    </Grid>
+</Controls:MetroWindow>

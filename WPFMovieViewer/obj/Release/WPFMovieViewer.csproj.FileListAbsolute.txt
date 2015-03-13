@@ -1,0 +1,48 @@
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\bin\Release\WPFMovieViewer.exe.config
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\bin\Release\WPFMovieViewer.exe.manifest
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\bin\Release\WPFMovieViewer.application
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\bin\Release\WPFMovieViewer.exe
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\bin\Release\WPFMovieViewer.pdb
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\bin\Release\MahApps.Metro.dll
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\bin\Release\Newtonsoft.Json.dll
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\bin\Release\System.Windows.Interactivity.dll
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\bin\Release\Newtonsoft.Json.xml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\App.baml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\MainWindow.g.cs
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\App.g.cs
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer_MarkupCompile.cache
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer_MarkupCompile.lref
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\MainWindow.baml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.g.resources
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.Properties.Resources.resources
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.csproj.GenerateResource.Cache
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.exe.manifest
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.application
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.exe
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.pdb
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\bin\Release\WPFMovieViewer.exe.config
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\bin\Release\WPFMovieViewer.exe.manifest
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\bin\Release\WPFMovieViewer.application
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\bin\Release\WPFMovieViewer.exe
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\bin\Release\WPFMovieViewer.pdb
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\bin\Release\MahApps.Metro.dll
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\bin\Release\Newtonsoft.Json.dll
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\bin\Release\System.Windows.Interactivity.dll
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\bin\Release\Newtonsoft.Json.xml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\App.baml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\MainWindow.g.cs
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\App.g.cs
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer_MarkupCompile.cache
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer_MarkupCompile.lref
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\MainWindow.baml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.g.resources
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.Properties.Resources.resources
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.csproj.GenerateResource.Cache
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.exe.manifest
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.application
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.exe
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WPFMovieViewer\obj\Release\WPFMovieViewer.pdb

@@ -1,0 +1,66 @@
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\bin\Release\WpfMovieDB.exe.config
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\bin\Release\WpfMovieDB.exe.manifest
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\bin\Release\WpfMovieDB.application
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\bin\Release\WpfMovieDB.exe
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\bin\Release\WpfMovieDB.pdb
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\bin\Release\MahApps.Metro.dll
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\bin\Release\Newtonsoft.Json.dll
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\bin\Release\System.Windows.Interactivity.dll
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\bin\Release\Newtonsoft.Json.xml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\DebugWindow.baml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\EditMovieWindow.baml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\EditWindow.baml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\SelectionForm.baml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\App.baml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\DebugWindow.g.cs
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\EditMovieWindow.g.cs
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\EditWindow.g.cs
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\MainWindow.g.cs
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\SelectionForm.g.cs
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\App.g.cs
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB_MarkupCompile.cache
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB_MarkupCompile.lref
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\MainWindow.baml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.g.resources
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.Properties.Resources.resources
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.csproj.GenerateResource.Cache
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.TrustInfo.xml
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.exe.manifest
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.application
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.exe
+C:\Users\Matthew\Documents\Visual Studio 2012\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.pdb
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\bin\Release\WpfMovieDB.exe.config
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\bin\Release\WpfMovieDB.exe.manifest
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\bin\Release\WpfMovieDB.application
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\bin\Release\WpfMovieDB.exe
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\bin\Release\WpfMovieDB.pdb
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\bin\Release\MahApps.Metro.dll
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\bin\Release\Newtonsoft.Json.dll
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\bin\Release\System.Windows.Interactivity.dll
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\bin\Release\Newtonsoft.Json.xml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.csprojResolveAssemblyReference.cache
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\DebugWindow.baml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\EditMovieWindow.baml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\EditWindow.baml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\SelectionForm.baml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\App.baml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\DebugWindow.g.cs
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\EditMovieWindow.g.cs
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\EditWindow.g.cs
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\MainWindow.g.cs
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\SelectionForm.g.cs
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\App.g.cs
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\GeneratedInternalTypeHelper.g.cs
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB_MarkupCompile.cache
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB_MarkupCompile.lref
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\MainWindow.baml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.g.resources
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.Properties.Resources.resources
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.csproj.GenerateResource.Cache
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.TrustInfo.xml
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.exe.manifest
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.application
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.exe
+C:\Users\Matthew\Google Drive\Visual Studio 2013\Projects\MainSolution\WpfMovieDB\obj\Release\WpfMovieDB.pdb

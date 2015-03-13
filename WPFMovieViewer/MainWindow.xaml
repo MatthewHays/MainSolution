@@ -1,0 +1,145 @@
+﻿<Controls:MetroWindow x:Class="WPFMovieViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WPFMovieViewer"
+        UseLayoutRounding="True"
+        ShowIconOnTitleBar="True"
+        Title="MovieViewer" Height="500" Width="600"
+        Icon="icon.ico">
+    <Controls:MetroWindow.DataContext>
+        <local:MovieViewModel/>
+    </Controls:MetroWindow.DataContext>
+    <Controls:MetroWindow.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Controls:MetroWindow.Resources>
+    
+    <Controls:MetroWindow.WindowCommands>
+        <Controls:WindowCommands>
+            <StackPanel Orientation="Horizontal">
+                <UniformGrid Columns="2">
+                    <Button Content="Name"  Click="Sort_Click" Tag="MovieName"/>
+                    <Button Content="Year"   Click="Sort_Click" Tag="Year"/>
+                    <Button Content="Rating" Click="Sort_Click" Tag="AverageRating"/>
+                    <Button Content="File"   Click="Sort_Click" Tag="DateDownloaded"/>
+                </UniformGrid>
+            <TextBox Text="{Binding SearchString, UpdateSourceTrigger=PropertyChanged}" 
+                     Background="Transparent" 
+                     Height="10" Width="200" 
+                     VerticalContentAlignment="Center"
+                     Controls:TextboxHelper.ClearTextButton="True" 
+                     Controls:TextboxHelper.Watermark="Search"/>
+            </StackPanel>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.WindowCommands>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+
+        <ListBox Grid.Row="0" x:Name="ListBox" ItemsSource="{Binding Movies}" 
+                 VirtualizingStackPanel.IsVirtualizing="True" 
+                 Background="Transparent" 
+                 HorizontalContentAlignment="Stretch" 
+                 VerticalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <DataTemplate.Resources>
+                        
+                        <Style x:Key="VisibleSelect" TargetType="{x:Type Border}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+
+                        <Style x:Key="InvisibleSelect" TargetType="{x:Type Border}">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Value="True">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+
+                        <Style x:Key="ImageSelect" TargetType="{x:Type Image}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}, Path=IsSelected}" Value="True">
+                                    <Setter Property="LayoutTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleY="5" ScaleX="5"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                        
+                    </DataTemplate.Resources>
+
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Image x:Name="MovieImage" Source="{Binding CoverArtConverted, IsAsync=True}" Height="50" Width="32" Style="{StaticResource ImageSelect}"/>
+
+                        <Border Style="{StaticResource InvisibleSelect}" Margin="5,0">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Width="250">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding MovieName}" FontWeight="Bold"/>
+                                        <TextBlock Margin="5,0" Text="{Binding Year, StringFormat=[{0}]}" />
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding GenresFormatted}" />
+                                </StackPanel>
+
+                                <StackPanel Width="130">
+                                    <TextBlock Text="{Binding AverageRating, StringFormat=\{0:0.0\}}" TextAlignment="Center"/>
+                                </StackPanel>
+                                    
+                                <TextBlock Width="80" Text="{Binding DateDownloaded, StringFormat=\{0:dd/MM/yyyy\}}"/>
+
+                                <CheckBox IsChecked="{Binding Watched}" Margin="4" IsHitTestVisible="False"/>
+                                <CheckBox IsChecked="{Binding JenWantsToWatch}" Margin="4" IsHitTestVisible="False"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Style="{StaticResource VisibleSelect}" Margin="5,0">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding MovieName}" FontWeight="Bold"/>
+                                        <TextBlock Margin="5,0" Text="{Binding Year, StringFormat=[{0}]}" />
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding GenresFormatted}"  />
+                                    <TextBlock Text="{Binding AverageRating, StringFormat=\{0:0.0\}}" />
+                                    <TextBlock Text="{Binding DateDownloaded, StringFormat=\{0:dd/MM/yyyy\}}"/>
+                                    <TextBlock Margin="0,5" VerticalAlignment="Center" Width="400" Text="{Binding Description}" TextWrapping="Wrap" HorizontalAlignment="Left" TextAlignment="Justify" />
+                                    <TextBlock Margin="0,5" VerticalAlignment="Center" Width="400" Text="{Binding CastFormatted}" TextWrapping="Wrap" HorizontalAlignment="Left" />
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding Watched}" IsHitTestVisible="False"/>
+                                        <TextBlock Text="Watched" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding JenWantsToWatch}" IsHitTestVisible="False"/>
+                                        <TextBlock Text="Jen Wants To Watch" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                            
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Controls:MetroWindow>
