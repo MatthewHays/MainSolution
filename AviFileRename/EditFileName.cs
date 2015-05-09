@@ -77,6 +77,7 @@ namespace AviFileRename
             name = name.Replace("hdtv", "");
             name = name.Replace("blueray", "");
             name = name.Replace("bluray", "");
+            name = name.Replace("brrip", "");
             name = name.Replace("series", "S");
             name = name.Replace("season", "S");
             name = name.Replace("episode", "E");
