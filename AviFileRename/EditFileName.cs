@@ -82,27 +82,32 @@ namespace AviFileRename
             name = name.Replace("season", "S");
             name = name.Replace("episode", "E");
             name = name.Replace(".", " ");
+            name = name.Replace("_", " ");
             name = name.Replace("[", "(");
             name = name.Replace("]", ")");
             name = name.Replace("cd1", "1-2");
             name = name.Replace("cd2", "2-2");
             name = name.Replace("  ", " ");
+            name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name);
 
-            name = Regex.Replace(name, "([0-9]{4})", @"($1)");
-            name = Regex.Replace(name, " ([0-9])([0-9][0-9])", " S0$1E$2");
-            name = Regex.Replace(name, " ([0-9][0-9])x([0-9][0-9])", " S$1E$2", RegexOptions.IgnoreCase);
-            name = Regex.Replace(name, " ([0-9])x([0-9][0-9])", " S0$1E$2", RegexOptions.IgnoreCase);
-            name = Regex.Replace(name, " s([0-9][0-9])e([0-9][0-9])", " S$1E$2", RegexOptions.IgnoreCase);
-            name = Regex.Replace(name, " S ([0-9])", " S0$1", RegexOptions.IgnoreCase);
-            name = Regex.Replace(name, " E ([0-9][0-9])", "E$1", RegexOptions.IgnoreCase);
-            name = Regex.Replace(name, " s([0-9][0-9])e([0-9][0-9])-", " S$1E$2 - ", RegexOptions.IgnoreCase);
-            name = Regex.Replace(name, "- s([0-9][0-9])e([0-9][0-9])", "S$1E$2", RegexOptions.IgnoreCase);
+            name = Regex.Replace(name, @"(\(+[0-9]{4}\)+).*",                 " ($1)"); //make sure date is in brackets, remove every after
+
+            name = Regex.Replace(name, @"\(+([0-9])([0-9][0-9])\)+",        "S0$1E$2");
+            name = Regex.Replace(name, @"\(+([0-9][0-9])x([0-9][0-9])\)+",   "S$1E$2",  RegexOptions.IgnoreCase);
+            name = Regex.Replace(name, @"\(+([0-9])x([0-9][0-9])\)+",        "S0$1E$2", RegexOptions.IgnoreCase);
+            
+            name = Regex.Replace(name, " S ([0-9])",                   " S$1",     RegexOptions.IgnoreCase);
+            name = Regex.Replace(name, "([0-9]) E ([0-9])",            "$1E$2",    RegexOptions.IgnoreCase);
+            name = Regex.Replace(name, " S([0-9])E",                   " S0$1E",   RegexOptions.IgnoreCase);
+            
+            name = Regex.Replace(name, "E([0-9])$",                    "E0$1", RegexOptions.IgnoreCase);
+            //name = Regex.Replace(name, " s([0-9][0-9])e([0-9][0-9])-", " S$1E$2 - ", RegexOptions.IgnoreCase);
+            name = Regex.Replace(name, "S([0-9][0-9])E([0-9][0-9]).*", "S$1E$2", RegexOptions.IgnoreCase); //remove everything after the 
+            name = Regex.Replace(name, "- S([0-9][0-9])E([0-9][0-9])", " S$1E$2", RegexOptions.IgnoreCase);
             name = name.Replace("((", "(");
             name = name.Replace("))", ")");
             name = name.Replace("()", "");
             name = name.Replace("  ", " ");
-
-            name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name);
 
             return name.Trim();
         }
