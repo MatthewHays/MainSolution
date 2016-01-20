@@ -24,7 +24,7 @@ namespace AviFileRename
                  Load += (s, e) => Close();
                 return;
             }
-            
+             
             
             textBox1.SelectAll();
 
@@ -90,7 +90,7 @@ namespace AviFileRename
             name = name.Replace("  ", " ");
             name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(name);
 
-            name = Regex.Replace(name, @"(\(+[0-9]{4}\)+).*",                 " ($1)"); //make sure date is in brackets, remove every after
+            name = Regex.Replace(name, @"(\(?[0-9]{4}\)?).*",                 " ($1)"); //make sure date is in brackets, remove every after
 
             name = Regex.Replace(name, @"\(+([0-9])([0-9][0-9])\)+",        "S0$1E$2");
             name = Regex.Replace(name, @"\(+([0-9][0-9])x([0-9][0-9])\)+",   "S$1E$2",  RegexOptions.IgnoreCase);

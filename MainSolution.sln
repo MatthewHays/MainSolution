@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastPopulate", "FastPopulat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellExtension", "ShellExtension\ShellExtension.csproj", "{18849E12-8033-4E10-A820-7E2C702D98DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{469A55AE-044A-4574-8A4C-D53E14C5658D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{18849E12-8033-4E10-A820-7E2C702D98DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18849E12-8033-4E10-A820-7E2C702D98DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18849E12-8033-4E10-A820-7E2C702D98DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{469A55AE-044A-4574-8A4C-D53E14C5658D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{469A55AE-044A-4574-8A4C-D53E14C5658D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{469A55AE-044A-4574-8A4C-D53E14C5658D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{469A55AE-044A-4574-8A4C-D53E14C5658D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

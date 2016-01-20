@@ -5,3 +5,4 @@
 *.g.i.cs
 bin/
 obj/
+*.nupkg
