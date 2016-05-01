@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AviFileRename", "AviFileRename\AviFileRename.csproj", "{147C4174-F526-4D15-B1EA-9C142E145001}"
 EndProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShellExtension", "ShellExtension\ShellExtension.csproj", "{18849E12-8033-4E10-A820-7E2C702D98DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{469A55AE-044A-4574-8A4C-D53E14C5658D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{BAB0B776-4236-443E-9216-DECA1A42487E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{469A55AE-044A-4574-8A4C-D53E14C5658D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{469A55AE-044A-4574-8A4C-D53E14C5658D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{469A55AE-044A-4574-8A4C-D53E14C5658D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB0B776-4236-443E-9216-DECA1A42487E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB0B776-4236-443E-9216-DECA1A42487E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB0B776-4236-443E-9216-DECA1A42487E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB0B776-4236-443E-9216-DECA1A42487E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
