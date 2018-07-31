@@ -1,0 +1,17 @@
+﻿Restoring packages for C:\Users\Matthew\Documents\GitHub\MainSolution\AviFileRename\AviFileRename.csproj...
+Restoring packages for C:\Users\Matthew\Documents\GitHub\MainSolution\AviFileRename\AviFileRename.csproj...
+  GET https://api.nuget.org/v3-flatcontainer/log4net/index.json
+  OK https://api.nuget.org/v3-flatcontainer/log4net/index.json 448ms
+  GET https://api.nuget.org/v3-flatcontainer/log4net/2.0.8/log4net.2.0.8.nupkg
+  OK https://api.nuget.org/v3-flatcontainer/log4net/2.0.8/log4net.2.0.8.nupkg 410ms
+Installing log4net 2.0.8.
+Committing restore...
+Generating MSBuild file C:\Users\Matthew\Documents\GitHub\MainSolution\AviFileRename\obj\AviFileRename.csproj.nuget.g.props.
+Generating MSBuild file C:\Users\Matthew\Documents\GitHub\MainSolution\AviFileRename\obj\AviFileRename.csproj.nuget.g.targets.
+Writing lock file to disk. Path: C:\Users\Matthew\Documents\GitHub\MainSolution\AviFileRename\obj\project.assets.json
+Restore completed in 2.39 sec for C:\Users\Matthew\Documents\GitHub\MainSolution\AviFileRename\AviFileRename.csproj.
+Successfully installed 'log4net 2.0.8' to AviFileRename
+Executing nuget actions took 630.1 ms
+Time Elapsed: 00:00:03.7059171
+========== Finished ==========
+
