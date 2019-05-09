@@ -14,3 +14,4 @@ packages/
 *.ide
 
 *.ide-wal
+*.dtbcache
