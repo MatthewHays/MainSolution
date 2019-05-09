@@ -73,9 +73,9 @@
                         <xcad:LayoutAnchorablePane>
                             <xcad:LayoutAnchorable ContentId="alarms" Title="Alarms" IconSource="../Images/alarm-clock-blue.png" >
                                 <ListBox>
-                                    <s:String>Alarm 1</s:String>
+                                    <!--<s:String>Alarm 1</s:String>
                                     <s:String>Alarm 2</s:String>
-                                    <s:String>Alarm 3</s:String>
+                                    <s:String>Alarm 3</s:String>-->
                                 </ListBox>
                             </xcad:LayoutAnchorable>
                             <xcad:LayoutAnchorable ContentId="journal" Title="Journal" >

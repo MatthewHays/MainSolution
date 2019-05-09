@@ -9,3 +9,8 @@ obj/
 packages/
 .vs/MainSolution/v15/Server/sqlite3/storage.ide-wal
 *.ide-shm
+*.lock
+
+*.ide
+
+*.ide-wal
