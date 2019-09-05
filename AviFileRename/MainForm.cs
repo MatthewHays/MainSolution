@@ -85,7 +85,7 @@ namespace AviFileRename
                 {
                     if (MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OKCancel) != DialogResult.OK)
                     {
-                        return;
+                        continue;
                     }
                 }
             }
