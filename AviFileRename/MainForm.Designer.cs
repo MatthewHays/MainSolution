@@ -53,7 +53,7 @@
             this._sourceTextBox.Name = "_sourceTextBox";
             this._sourceTextBox.Size = new System.Drawing.Size(204, 20);
             this._sourceTextBox.TabIndex = 1;
-            this._sourceTextBox.Text = "E:\\Downloads";
+            this._sourceTextBox.Text = "D:\\Downloads";
             // 
             // _sourceButton
             // 
@@ -101,7 +101,7 @@
             this._destTextBox.Name = "_destTextBox";
             this._destTextBox.Size = new System.Drawing.Size(204, 20);
             this._destTextBox.TabIndex = 5;
-            this._destTextBox.Text = "E:\\Videos\\Movies";
+            this._destTextBox.Text = "D:\\Videos\\Movies";
             // 
             // MainForm
             // 
