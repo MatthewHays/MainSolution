@@ -35,6 +35,7 @@
             this._collapseToDestButton = new System.Windows.Forms.Button();
             this._destButton = new System.Windows.Forms.Button();
             this._destTextBox = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // _renameButton
@@ -103,11 +104,22 @@
             this._destTextBox.TabIndex = 5;
             this._destTextBox.Text = "D:\\Videos\\Movies";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(229, 129);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(275, 159);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this._destButton);
             this.Controls.Add(this._destTextBox);
             this.Controls.Add(this._collapseToDestButton);
@@ -132,6 +144,7 @@
         private System.Windows.Forms.Button _collapseToDestButton;
         private System.Windows.Forms.Button _destButton;
         private System.Windows.Forms.TextBox _destTextBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 

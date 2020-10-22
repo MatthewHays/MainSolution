@@ -10,6 +10,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Management;
+using System.Diagnostics;
 
 namespace AviFileRename
 {
@@ -154,6 +155,10 @@ namespace AviFileRename
 
             mc.InvokeMethod("Create", theProcessToRun);
         }
-        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Process.Start(_sourceTextBox.Text);
+        }
     } //class
 } //namespace

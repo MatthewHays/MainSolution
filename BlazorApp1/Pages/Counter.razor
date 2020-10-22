@@ -1,0 +1,25 @@
+﻿@page "/counter"
+
+@inject Blazored.LocalStorage.ILocalStorageService ls
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        currentCount = await ls.GetItemAsync<int>("count");
+        await base.OnInitializedAsync();
+    }
+
+    private async Task IncrementCount()
+    {
+        currentCount++;
+        await ls.SetItemAsync<int>("count", currentCount);
+    }
+}

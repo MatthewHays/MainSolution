@@ -35,6 +35,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplicationCore", "WebAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triangles", "Triangles\Triangles.csproj", "{2253F629-D75E-4B0F-99D0-7F6BC40EABFB}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppSignalR", "ConsoleAppSignalR\ConsoleAppSignalR.csproj", "{BE4F60FD-C140-4776-8B65-919E8B8F4951}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{89E4DBD8-0466-48F9-8448-79213A6CC24D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +109,14 @@ Global
 		{2253F629-D75E-4B0F-99D0-7F6BC40EABFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2253F629-D75E-4B0F-99D0-7F6BC40EABFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2253F629-D75E-4B0F-99D0-7F6BC40EABFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE4F60FD-C140-4776-8B65-919E8B8F4951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE4F60FD-C140-4776-8B65-919E8B8F4951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE4F60FD-C140-4776-8B65-919E8B8F4951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE4F60FD-C140-4776-8B65-919E8B8F4951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89E4DBD8-0466-48F9-8448-79213A6CC24D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89E4DBD8-0466-48F9-8448-79213A6CC24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89E4DBD8-0466-48F9-8448-79213A6CC24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89E4DBD8-0466-48F9-8448-79213A6CC24D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
