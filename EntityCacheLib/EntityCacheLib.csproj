@@ -57,7 +57,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EntityClientServerLib\EntityClientServerLib.csproj">
       <Project>{4396B5E8-F72C-4A41-9052-A899C753C85F}</Project>
-      <Name>ClientServerLib</Name>
+      <Name>EntityClientServerLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

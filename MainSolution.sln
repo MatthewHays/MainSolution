@@ -37,7 +37,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triangles", "Triangles\Tria
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppSignalR", "ConsoleAppSignalR\ConsoleAppSignalR.csproj", "{BE4F60FD-C140-4776-8B65-919E8B8F4951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{89E4DBD8-0466-48F9-8448-79213A6CC24D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp1", "BlazorApp1\BlazorApp1.csproj", "{89E4DBD8-0466-48F9-8448-79213A6CC24D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANTLRTest", "ANTLR\ANTLRTest.csproj", "{956EC11F-B4BF-4307-800D-0ADE0F0DE08B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{89E4DBD8-0466-48F9-8448-79213A6CC24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89E4DBD8-0466-48F9-8448-79213A6CC24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89E4DBD8-0466-48F9-8448-79213A6CC24D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{956EC11F-B4BF-4307-800D-0ADE0F0DE08B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{956EC11F-B4BF-4307-800D-0ADE0F0DE08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{956EC11F-B4BF-4307-800D-0ADE0F0DE08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{956EC11F-B4BF-4307-800D-0ADE0F0DE08B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
