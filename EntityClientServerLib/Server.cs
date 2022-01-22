@@ -182,7 +182,7 @@ namespace ClientServerLib
                         Thread.Sleep(100);
                     }
                 }
-                catch (Exception e)
+                catch (Exception /*e*/)
                 {
                     System.Console.WriteLine("Server lost client");
                     Connected = false;
