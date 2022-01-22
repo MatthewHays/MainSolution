@@ -20,7 +20,47 @@
       "ProjectGuid": "5872d120-632d-40c4-8f7e-4c7ae278afff",
       "DisplayName": "FindEmptyFolders",
       "ColorIndex": 2
+    },
+    "be4f60fd-c140-4776-8b65-919e8b8f4951": {
+      "ProjectGuid": "be4f60fd-c140-4776-8b65-919e8b8f4951",
+      "DisplayName": "ConsoleAppSignalR",
+      "ColorIndex": 3
+    },
+    "469a55ae-044a-4574-8a4c-d53e14c5658d": {
+      "ProjectGuid": "469a55ae-044a-4574-8a4c-d53e14c5658d",
+      "DisplayName": "Scratch",
+      "ColorIndex": 4
+    },
+    "e0750e3a-1246-4f6f-ab5b-d57e3fa09ee9": {
+      "ProjectGuid": "e0750e3a-1246-4f6f-ab5b-d57e3fa09ee9",
+      "DisplayName": "TestCoreConsoleApp1",
+      "ColorIndex": 5
+    },
+    "2253f629-d75e-4b0f-99d0-7f6bc40eabfb": {
+      "ProjectGuid": "2253f629-d75e-4b0f-99d0-7f6bc40eabfb",
+      "DisplayName": "Triangles",
+      "ColorIndex": 6
+    },
+    "4396b5e8-f72c-4a41-9052-a899c753c85f": {
+      "ProjectGuid": "4396b5e8-f72c-4a41-9052-a899c753c85f",
+      "DisplayName": "EntityClientServerLib",
+      "ColorIndex": 7
+    },
+    "e296c44b-a308-47a3-a051-594fe0fd95a2": {
+      "ProjectGuid": "e296c44b-a308-47a3-a051-594fe0fd95a2",
+      "DisplayName": "WebApplicationCore",
+      "ColorIndex": 8
+    },
+    "b2b56f3c-a262-4111-a572-c82dbea68d8a": {
+      "ProjectGuid": "b2b56f3c-a262-4111-a572-c82dbea68d8a",
+      "DisplayName": "EntityCacheLib",
+      "ColorIndex": 9
+    },
+    "9152662e-55d1-49a1-8d33-52a98526260b": {
+      "ProjectGuid": "9152662e-55d1-49a1-8d33-52a98526260b",
+      "DisplayName": "EntityConnectionTest",
+      "ColorIndex": 10
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 11
 }

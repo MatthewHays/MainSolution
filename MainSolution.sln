@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppSignalR", "Consol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ANTLRTest", "ANTLR\ANTLRTest.csproj", "{956EC11F-B4BF-4307-800D-0ADE0F0DE08B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestBlazorWebAssembly", "TestBlazorWebAssembly\TestBlazorWebAssembly.csproj", "{F4851C27-5537-4BBB-97A5-C334C41734DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{956EC11F-B4BF-4307-800D-0ADE0F0DE08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{956EC11F-B4BF-4307-800D-0ADE0F0DE08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{956EC11F-B4BF-4307-800D-0ADE0F0DE08B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4851C27-5537-4BBB-97A5-C334C41734DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4851C27-5537-4BBB-97A5-C334C41734DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4851C27-5537-4BBB-97A5-C334C41734DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4851C27-5537-4BBB-97A5-C334C41734DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
