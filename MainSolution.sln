@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AviFileRename", "AviFileRen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindEmptyFolders", "FindEmptyFolders\FindEmptyFolders.csproj", "{5872D120-632D-40C4-8F7E-4C7AE278AFFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfMovieDB", "WpfMovieDB\WpfMovieDB.csproj", "{9934CA97-CD89-44CE-9972-97FA0B9E56DF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityCacheLib", "EntityCacheLib\EntityCacheLib.csproj", "{B2B56F3C-A262-4111-A572-C82DBEA68D8A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityConnectionTest", "EntityConnectionTest\EntityConnectionTest.csproj", "{9152662E-55D1-49A1-8D33-52A98526260B}"
@@ -43,10 +41,6 @@ Global
 		{5872D120-632D-40C4-8F7E-4C7AE278AFFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5872D120-632D-40C4-8F7E-4C7AE278AFFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5872D120-632D-40C4-8F7E-4C7AE278AFFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9934CA97-CD89-44CE-9972-97FA0B9E56DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9934CA97-CD89-44CE-9972-97FA0B9E56DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9934CA97-CD89-44CE-9972-97FA0B9E56DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9934CA97-CD89-44CE-9972-97FA0B9E56DF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B2B56F3C-A262-4111-A572-C82DBEA68D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2B56F3C-A262-4111-A572-C82DBEA68D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2B56F3C-A262-4111-A572-C82DBEA68D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
