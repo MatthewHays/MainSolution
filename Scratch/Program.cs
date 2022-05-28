@@ -1,80 +1,31 @@
-﻿using CSharpTest.Net.Collections;
-using CSharpTest.Net.Serialization;
+﻿// This application entry point is based on ASP.NET Core new project templates and is included
+// as a starting point for app host configuration.
+// This file may need updated according to the specific scenario of the application being upgraded.
+// For more information on ASP.NET Core hosting, see https://docs.microsoft.com/aspnet/core/fundamentals/host/web-host
+
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading;
-using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Scratch
 {
-    class Program
+    public class Program
     {
-        static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
-
-            /*var jobs = Enumerable.Range(0, 100).Select( async i =>
-            {
-                //await Task.Yield();
-                Console.WriteLine($"iteration {i} - {Thread.CurrentThread.ManagedThreadId}");
-                Thread.Sleep(1_000);
-            });*/
-
-            var jobs = new List<Task>();
-            Enumerable.Range(0, 100).Select(async i =>
-            {
-                jobs.Add(Task.Run(() =>
-                { 
-                    //await Task.Yield();
-                    Console.WriteLine($"iteration {i} - {Thread.CurrentThread.ManagedThreadId}");
-                    Thread.Sleep(1_000); 
-                }));
-            }).ToArray();
-
-            Console.WriteLine($"main {Thread.CurrentThread.ManagedThreadId}");
-            await Task.WhenAll(jobs);
-            Console.WriteLine($"main {Thread.CurrentThread.ManagedThreadId}");
-
-            var options = new BPlusTree<string, string>.OptionsV2(PrimitiveSerializer.String, PrimitiveSerializer.String);
-            options.CalcBTreeOrder(16, 24);
-            options.CreateFile = CreatePolicy.Always;
-            options.StoragePerformance = StoragePerformance.Fastest;
-            options.FileName = "c:\\temp\\dict.txt";
-            options.ExistingLogAction = ExistingLogAction.Truncate;
-            options.TransactionLogFileName = null;
-
-            var a =new BPlusTree<string, string>(options);
-            a.EnableCount();
-
-            /*var start = DateTime.Now;
-            for (var i=0; i<1000000; ++i)
-            {
-                a.Add(i.ToString(), i.ToString() + i.ToString() + i.ToString() + i.ToString()+ i.ToString()+ i.ToString()+ i.ToString()+ i.ToString()+ i.ToString());
-                //a.Commit();
-            }
-            Console.WriteLine(DateTime.Now-start);*/
-
-
-            var b = new Dictionary<string, string>();
-            var start = DateTime.Now;
-            for (var i = 0; i < 1000000; ++i)
-            {
-                b.Add(i.ToString(), i.ToString() + i.ToString() + i.ToString() + i.ToString() + i.ToString() + i.ToString() + i.ToString() + i.ToString() + i.ToString());
-                //a.Commit();
-            }
-            Console.WriteLine(DateTime.Now - start);
-
-            /*start = DateTime.Now;
-            var a1 = a["50000"];
-            Console.WriteLine(DateTime.Now - start);*/
-            start = DateTime.Now;
-            for (var count=0;count<1000;++count)
-            //var b1 = b["50000"];
-            Console.WriteLine(DateTime.Now - start);
-            
-            Console.WriteLine("done");
+            CreateHostBuilder(args).Build().Run();
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }
