@@ -18,8 +18,8 @@ namespace WindowsFormsApplication1
             InitializeComponent();
 
             listView1.KeyDown += new KeyEventHandler(listView1_KeyDown);
-            listView1.ContextMenu = new ContextMenu();
-            listView1.ContextMenu.MenuItems.Add("Deleted", new EventHandler(Delete));
+            //listView1.ContextMenu = new ContextMenu();
+            //listView1.ContextMenu.MenuItems.Add("Deleted", new EventHandler(Delete));
         }
 
         void listView1_KeyDown(object sender, KeyEventArgs e)
