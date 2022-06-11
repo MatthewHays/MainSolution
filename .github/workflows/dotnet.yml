@@ -20,6 +20,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore --os win-64
-    - name: Test
+      run: dotnet build --no-restore --runtime win-64
+    - name: Testi
       run: dotnet test --no-build --verbosity normal
