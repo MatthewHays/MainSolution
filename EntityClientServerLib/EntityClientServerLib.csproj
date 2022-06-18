@@ -4,10 +4,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>ClientServerLib</RootNamespace>
     <AssemblyName>ClientServerLib</AssemblyName>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
