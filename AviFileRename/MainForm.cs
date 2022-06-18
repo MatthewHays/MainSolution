@@ -121,9 +121,6 @@ namespace AviFileRename
 
         private void Collapse(string extension, string source, string destination, SearchOption searchOption)
         {
-
-            //CreateRemoteProcess();
-            
             this.Cursor = Cursors.WaitCursor;
             DirectoryInfo info = new DirectoryInfo(source);
             foreach (FileInfo file in info.GetFiles("*." + extension, searchOption))
@@ -138,22 +135,6 @@ namespace AviFileRename
             }
 
             this.Cursor = Cursors.Default;
-        }
-
-        private static void CreateRemoteProcess()
-        {
-            object[] theProcessToRun = { "notepad.exe" };
-
-            ConnectionOptions theConnection = new ConnectionOptions();
-            theConnection.Username = "Admin";
-            theConnection.Password = "Dushani50";
-
-           
-            ManagementScope theScope = new ManagementScope(@"\\server\root\cimv2", theConnection);
-            ManagementClass mc = new ManagementClass(theScope, new ManagementPath("Win32_Process"), new ObjectGetOptions());
-          
-
-            mc.InvokeMethod("Create", theProcessToRun);
         }
 
         private void button1_Click(object sender, EventArgs e)
