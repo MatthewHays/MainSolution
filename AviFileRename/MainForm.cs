@@ -139,7 +139,8 @@ namespace AviFileRename
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Process.Start(_sourceTextBox.Text);
+            var psi = new ProcessStartInfo() { FileName = _sourceTextBox.Text, UseShellExecute = true };
+            Process.Start(psi);
         }
     } //class
 } //namespace
