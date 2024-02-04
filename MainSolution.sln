@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AviFileRename", "AviFileRename\AviFileRename.csproj", "{147C4174-F526-4D15-B1EA-9C142E145001}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AviFileRename", "AviFileRename\AviFileRename.csproj", "{147C4174-F526-4D15-B1EA-9C142E145001}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindEmptyFolders", "FindEmptyFolders\FindEmptyFolders.csproj", "{5872D120-632D-40C4-8F7E-4C7AE278AFFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindEmptyFolders", "FindEmptyFolders\FindEmptyFolders.csproj", "{5872D120-632D-40C4-8F7E-4C7AE278AFFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityCacheLib", "EntityCacheLib\EntityCacheLib.csproj", "{B2B56F3C-A262-4111-A572-C82DBEA68D8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityCacheLib", "EntityCacheLib\EntityCacheLib.csproj", "{B2B56F3C-A262-4111-A572-C82DBEA68D8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityConnectionTest", "EntityConnectionTest\EntityConnectionTest.csproj", "{9152662E-55D1-49A1-8D33-52A98526260B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityConnectionTest", "EntityConnectionTest\EntityConnectionTest.csproj", "{9152662E-55D1-49A1-8D33-52A98526260B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityClientServerLib", "EntityClientServerLib\EntityClientServerLib.csproj", "{4396B5E8-F72C-4A41-9052-A899C753C85F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityClientServerLib", "EntityClientServerLib\EntityClientServerLib.csproj", "{4396B5E8-F72C-4A41-9052-A899C753C85F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scratch", "Scratch\Scratch.csproj", "{469A55AE-044A-4574-8A4C-D53E14C5658D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scratch", "Scratch\Scratch.csproj", "{469A55AE-044A-4574-8A4C-D53E14C5658D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfREminder", "WpfREminder\WpfREminder.csproj", "{0FEC4ECE-ED49-4E0F-9958-411401216075}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{469A55AE-044A-4574-8A4C-D53E14C5658D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{469A55AE-044A-4574-8A4C-D53E14C5658D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{469A55AE-044A-4574-8A4C-D53E14C5658D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FEC4ECE-ED49-4E0F-9958-411401216075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FEC4ECE-ED49-4E0F-9958-411401216075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FEC4ECE-ED49-4E0F-9958-411401216075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FEC4ECE-ED49-4E0F-9958-411401216075}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
