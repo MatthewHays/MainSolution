@@ -28,12 +28,12 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore --configuration Release
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal --configuration Release
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: AVIRenameArtifact
-        path: AviFileRename/**
+        path: AviFileRename/bin/Release/net8.0-windows/**
         retention-days: 1
