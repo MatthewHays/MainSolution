@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Globalization;
-using System.Management;
 using System.Diagnostics;
 
 namespace AviFileRename
