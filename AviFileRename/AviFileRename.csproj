@@ -9,7 +9,6 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <SupportedPlatform Include="windows" />
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>AviFileRename.Program</StartupObject>
