@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="AviFileRename.Wpf/AviFileRename.Wpf.csproj" />
+  <Project Path="AviFileRename/AviFileRename.csproj" />
+  <Project Path="EntityCacheLib/EntityCacheLib.csproj" />
+  <Project Path="EntityClientServerLib/EntityClientServerLib.csproj" />
+  <Project Path="EntityConnectionTest/EntityConnectionTest.csproj" />
+  <Project Path="FindEmptyFolders/FindEmptyFolders.csproj" />
+  <Project Path="Scratch/Scratch.csproj" />
+</Solution>
