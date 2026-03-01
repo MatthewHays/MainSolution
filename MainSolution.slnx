@@ -10,5 +10,10 @@
   <Project Path="EntityClientServerLib/EntityClientServerLib.csproj" />
   <Project Path="EntityConnectionTest/EntityConnectionTest.csproj" />
   <Project Path="FindEmptyFolders/FindEmptyFolders.csproj" />
+  <Project Path="reactproject1/ReactTestProject.esproj">
+    <Platform Project="AnyCPU" />
+    <Build />
+    <Deploy />
+  </Project>
   <Project Path="Scratch/Scratch.csproj" />
 </Solution>
