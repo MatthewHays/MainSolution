@@ -13,9 +13,25 @@ public partial class MainWindow : Window
 {
     private readonly FileRenameService _renameService = new();
 
+    private static readonly string[] VideoExtensions = { "avi", "mkv", "mp4" };
+    private static readonly string[] CollapseExtensions = { "avi", "mkv", "mp4", "srt" };
+
     public MainWindow()
     {
         InitializeComponent();
+    }
+
+    private void SetBusy(bool busy)
+    {
+        RenameFilesButton.IsEnabled = !busy;
+        FlattenFolderButton.IsEnabled = !busy;
+        MoveToDestButton.IsEnabled = !busy;
+        Cursor = busy ? System.Windows.Input.Cursors.Wait : System.Windows.Input.Cursors.Arrow;
+    }
+
+    private void SetStatus(string message)
+    {
+        StatusLabel.Content = message;
     }
 
     private void SourceBrowseButton_Click(object sender, RoutedEventArgs e)
@@ -38,44 +54,67 @@ public partial class MainWindow : Window
         }
     }
 
-    private void RenameAllButton_Click(object sender, RoutedEventArgs e)
+    private async void RenameFilesButton_Click(object sender, RoutedEventArgs e)
     {
-        var files = _renameService.ScanDirectory(SourceTextBox.Text, new[] { "avi", "mkv", "mp4" });
-        _renameService.RenameFiles(files);
-        System.Windows.MessageBox.Show("Renaming complete.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    private void CollapseFlattenButton_Click(object sender, RoutedEventArgs e)
-    {
-        Collapse("avi", SourceTextBox.Text, SourceTextBox.Text, SearchOption.AllDirectories);
-        Collapse("mkv", SourceTextBox.Text, SourceTextBox.Text, SearchOption.AllDirectories);
-        Collapse("mp4", SourceTextBox.Text, SourceTextBox.Text, SearchOption.AllDirectories);
-        Collapse("srt", SourceTextBox.Text, SourceTextBox.Text, SearchOption.AllDirectories);
-        System.Windows.MessageBox.Show("CollapseFlatten complete.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-    }
-
-    /*private void CollapseToDestButton_Click(object sender, RoutedEventArgs e)
-    {
-        Collapse("avi", SourceTextBox.Text, DestTextBox.Text, SearchOption.TopDirectoryOnly);
-        Collapse("mkv", SourceTextBox.Text, DestTextBox.Text, SearchOption.TopDirectoryOnly);
-        Collapse("mp4", SourceTextBox.Text, DestTextBox.Text, SearchOption.TopDirectoryOnly);
-        Collapse("srt", SourceTextBox.Text, DestTextBox.Text, SearchOption.TopDirectoryOnly);
-        System.Windows.MessageBox.Show("CollapseToDest complete.", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-    }*/
-
-    private void Collapse(string extension, string source, string destination, SearchOption searchOption)
-    {
-        var info = new DirectoryInfo(source);
-        foreach (var file in info.GetFiles("*." + extension, searchOption))
+        var source = SourceTextBox.Text;
+        SetBusy(true);
+        try
         {
-            try
+            var files = _renameService.ScanDirectory(source, VideoExtensions);
+            if (files.Count == 0)
             {
-                File.Move(file.FullName, Path.Combine(destination, file.Name));
+                SetStatus($"No video files found in {source}");
+                return;
             }
-            catch (Exception)
-            {
-                // Ignore errors
-            }
+            int count = await _renameService.RenameFilesAsync(files);
+            SetStatus($"Renamed {count} files.");
+        }
+        catch (Exception ex)
+        {
+            System.Windows.MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        finally
+        {
+            SetBusy(false);
+        }
+    }
+
+    private async void FlattenFolderButton_Click(object sender, RoutedEventArgs e)
+    {
+        var source = SourceTextBox.Text;
+        SetBusy(true);
+        try
+        {
+            int count = await _renameService.CollapseAsync(source, source, SearchOption.AllDirectories, CollapseExtensions);
+            SetStatus($"Flatten complete. {count} files moved.");
+        }
+        catch (Exception ex)
+        {
+            System.Windows.MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        finally
+        {
+            SetBusy(false);
+        }
+    }
+
+    private async void MoveToDestButton_Click(object sender, RoutedEventArgs e)
+    {
+        var source = SourceTextBox.Text;
+        var dest = DestTextBox.Text;
+        SetBusy(true);
+        try
+        {
+            int count = await _renameService.CollapseAsync(source, dest, SearchOption.TopDirectoryOnly, CollapseExtensions);
+            SetStatus($"Move to Dest complete. {count} files moved.");
+        }
+        catch (Exception ex)
+        {
+            System.Windows.MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        finally
+        {
+            SetBusy(false);
         }
     }
 

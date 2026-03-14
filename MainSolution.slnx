@@ -4,6 +4,8 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="AviFileRename.Core/AviFileRename.Core.csproj" />
+  <Project Path="AviFileRename.Tests/AviFileRename.Tests.csproj" />
   <Project Path="AviFileRename.Wpf/AviFileRename.Wpf.csproj" />
   <Project Path="AviFileRename/AviFileRename.csproj" />
   <Project Path="EntityCacheLib/EntityCacheLib.csproj" />

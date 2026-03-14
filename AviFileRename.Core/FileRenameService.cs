@@ -4,19 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Threading.Tasks;
 
 namespace AviFileRename.Core
 {
     public class FileRenameService
     {
-        public class FileEntry
-        {
-            public string OriginalPath { get; set; } = string.Empty;
-            public string OriginalName { get; set; } = string.Empty;
-            public string SuggestedName { get; set; } = string.Empty;
-            public string Extension { get; set; } = string.Empty;
-        }
-
         private static readonly string[] NoiseTokens =
         {
             "1080p", "720p", "2160p", "4k",
@@ -33,6 +26,10 @@ namespace AviFileRename.Core
             "-axxo", "-lol", "-2hd", "-fov", "-bia", "-fqm", "-notv", "-pow4", "-killers", "-evolve"
         };
 
+        private static readonly Regex[] NoiseTokenRegexes =
+            NoiseTokens.Select(t => new Regex(@"\b" + Regex.Escape(t) + @"\b", RegexOptions.IgnoreCase | RegexOptions.Compiled))
+                       .ToArray();
+
         private static readonly Regex MultiWhitespaceRegex =
             new Regex(@"\s+", RegexOptions.Compiled);
 
@@ -41,7 +38,7 @@ namespace AviFileRename.Core
         // - "Show Name - S01E01-02 - Episode Title - 720p HDTV x264-GROUP"
         private static readonly Regex MultiEpisodeTvRegex =
             new Regex(
-                @"^(?<title>.+?)\s*(?:[-. ]+)?s(?<season>\d{1,2})e(?<ep1>\d{2})[-E](?<ep2>\d{2})(?:\s+[-. ]*(?<extra>.*))?$",
+                @"^(?<title>.+?)\s*(?:[-. ]+)?s(?<season>\d{1,2})e(?<ep1>\d{2})(?:-E?|E)(?<ep2>\d{2})(?:\s+[-. ]*(?<extra>.*))?$",
                 RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         // Matches single-episode TV patterns, for example:
@@ -54,7 +51,7 @@ namespace AviFileRename.Core
                 @"^(?<title>.+?)\s*(?:[-. ]+)?(?:
                       s(?<season>\d{1,2})e(?<episode>\d{1,2}) |
                       (?<season>\d{1,2})x(?<episode>\d{2})   |
-                      (?<packed>\d{3})
+                      \b(?<packed>\d{3})\b
                   )(?:\s+[-. ]*(?<extra>.*))?$",
                 RegexOptions.IgnoreCase | RegexOptions.IgnorePatternWhitespace | RegexOptions.Compiled);
 
@@ -92,16 +89,16 @@ namespace AviFileRename.Core
             return files;
         }
 
-        public static string Clean(string name)
+        public string Clean(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 return string.Empty;
 
             var text = name.ToLowerInvariant();
 
-            foreach (var token in NoiseTokens)
+            foreach (var regex in NoiseTokenRegexes)
             {
-                text = text.Replace(token, " ");
+                text = regex.Replace(text, " ");
             }
 
             foreach (var suffix in GroupSuffixes)
@@ -111,9 +108,6 @@ namespace AviFileRename.Core
 
             text = text
                 .Replace("[eng]", " ")
-                .Replace("series", "S")
-                .Replace("season", "S")
-                .Replace("episode", "E")
                 .Replace(".", " ")
                 .Replace("_", " ")
                 .Replace("[", "(")
@@ -121,7 +115,17 @@ namespace AviFileRename.Core
                 .Replace("cd1", "1-2")
                 .Replace("cd2", "2-2");
 
+            text = Regex.Replace(text, @"\bseries\b", "S", RegexOptions.IgnoreCase);
+            text = Regex.Replace(text, @"\bseason\b", "S", RegexOptions.IgnoreCase);
+            text = Regex.Replace(text, @"\bepisode\b", "E", RegexOptions.IgnoreCase);
+
             text = MultiWhitespaceRegex.Replace(text, " ").Trim();
+
+            // Apply TitleCase to the title portion before pattern matching so that
+            // episode codes (S01E01) constructed by NormalizeShowOrMovie are not
+            // subsequently lowercased by ToTitleCase (which treats "S01E01" as one
+            // word and lowercases everything after the first character).
+            text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text);
 
             var normalized = NormalizeShowOrMovie(text);
 
@@ -131,12 +135,10 @@ namespace AviFileRename.Core
 
             normalized = MultiWhitespaceRegex.Replace(normalized, " ").Trim();
 
-            normalized = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(normalized);
-
             return normalized.Trim();
         }
 
-        private static string NormalizeShowOrMovie(string input)
+        private string NormalizeShowOrMovie(string input)
         {
             var multi = MultiEpisodeTvRegex.Match(input);
             if (multi.Success)
@@ -197,8 +199,9 @@ namespace AviFileRename.Core
             return input;
         }
 
-        public void RenameFiles(List<FileEntry> files)
+        public async Task<int> RenameFilesAsync(List<FileEntry> files)
         {
+            int count = 0;
             foreach (var entry in files)
             {
                 var dir = Path.GetDirectoryName(entry.OriginalPath);
@@ -206,16 +209,44 @@ namespace AviFileRename.Core
                 var newPath = Path.Combine(dir ?? string.Empty, entry.SuggestedName + "." + entry.Extension);
                 if (entry.OriginalPath != newPath && !File.Exists(newPath))
                 {
-                    File.Move(entry.OriginalPath, newPath);
-                    // Rename subtitle if exists
+                    await Task.Run(() => File.Move(entry.OriginalPath, newPath));
+                    count++;
+                    // Co-rename subtitle if present
                     var oldSub = Path.Combine(dir ?? string.Empty, oldName + ".srt");
                     var newSub = Path.Combine(dir ?? string.Empty, entry.SuggestedName + ".srt");
-                    if (File.Exists(oldSub))
+                    if (File.Exists(oldSub) && !File.Exists(newSub))
                     {
-                        File.Move(oldSub, newSub);
+                        await Task.Run(() => File.Move(oldSub, newSub));
                     }
                 }
             }
+            return count;
+        }
+
+        public async Task<int> CollapseAsync(string source, string destination, SearchOption searchOption, string[] extensions)
+        {
+            int count = 0;
+            var sourceDir = new DirectoryInfo(source);
+            if (!sourceDir.Exists)
+                return count;
+
+            foreach (var ext in extensions)
+            {
+                foreach (var file in sourceDir.GetFiles("*." + ext, searchOption))
+                {
+                    var destPath = Path.Combine(destination, file.Name);
+                    try
+                    {
+                        await Task.Run(() => File.Move(file.FullName, destPath));
+                        count++;
+                    }
+                    catch
+                    {
+                        // silently skip per-file failures
+                    }
+                }
+            }
+            return count;
         }
     }
 }

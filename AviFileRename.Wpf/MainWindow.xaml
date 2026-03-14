@@ -1,7 +1,8 @@
 ﻿<Window x:Class="AviFileRename.Wpf.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Movie Rename" Height="149" Width="345" ResizeMode="NoResize" WindowStyle="ToolWindow">
+        Title="Movie Rename" Height="210" Width="380"
+        ResizeMode="CanResizeWithGrip" MinHeight="210" MinWidth="300">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -17,20 +18,26 @@
 
         <!-- Source Folder -->
         <TextBox x:Name="SourceTextBox" Grid.Row="0" Grid.Column="0" Height="24" VerticalAlignment="Center" Text="D:\Downloads"/>
-        <Button x:Name="SourceBrowseButton" Grid.Row="0" Grid.Column="1" Content="..." Height="24" Margin="5,0,0,0" Click="SourceBrowseButton_Click"/>
+        <Button x:Name="SourceBrowseButton" Grid.Row="0" Grid.Column="1" Content="..." Height="24" Margin="5,0,0,0"
+                ToolTip="Select source folder" Click="SourceBrowseButton_Click"/>
 
         <!-- Destination Folder -->
-        <TextBox x:Name="DestTextBox" Grid.Row="1" Grid.Column="0" Height="24" VerticalAlignment="Center" Text="D:\Videos\Movies"/>
-        <Button x:Name="DestBrowseButton" Grid.Row="1" Grid.Column="1" Content="..." Height="24" Margin="5,0,0,0" Click="DestBrowseButton_Click"/>
+        <TextBox x:Name="DestTextBox" Grid.Row="1" Grid.Column="0" Height="24" VerticalAlignment="Center" Margin="0,5,0,0" Text="D:\Videos\Movies"/>
+        <Button x:Name="DestBrowseButton" Grid.Row="1" Grid.Column="1" Content="..." Height="24" Margin="5,5,0,0"
+                ToolTip="Select destination folder" Click="DestBrowseButton_Click"/>
 
-        <!-- Buttons -->
+        <!-- Action Buttons -->
         <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,10,0,0">
-            <Button x:Name="RenameAllButton" Content="RenameAll" Width="100" Margin="0,0,10,0" Click="RenameAllButton_Click"/>
-            <Button x:Name="CollapseFlattenButton" Content="CollapseFlatten" Width="100" Margin="0,0,10,0" Click="CollapseFlattenButton_Click"/>
-            <!-- <Button x:Name="CollapseToDestButton" Content="CollapseToDest" Width="100" Click="CollapseToDestButton_Click"/> -->
+            <Button x:Name="RenameFilesButton" Content="Rename Files" Width="100" Margin="0,0,10,0" Click="RenameFilesButton_Click"/>
+            <Button x:Name="FlattenFolderButton" Content="Flatten Folder" Width="100" Margin="0,0,10,0" Click="FlattenFolderButton_Click"/>
+            <Button x:Name="MoveToDestButton" Content="Move to Dest" Width="100" Margin="0,0,10,0" Click="MoveToDestButton_Click"/>
         </StackPanel>
 
         <!-- Open Folder Button -->
-        <Button x:Name="OpenFolderButton" Grid.Row="3" Grid.Column="1" Content="..." Height="24" Margin="5,10,0,0" Click="OpenFolderButton_Click"/>
+        <Button x:Name="OpenFolderButton" Grid.Row="3" Grid.Column="1" Content="📂" Height="24" Margin="5,10,0,0"
+                ToolTip="Open source folder in Explorer" Click="OpenFolderButton_Click"/>
+
+        <!-- Status Label -->
+        <Label x:Name="StatusLabel" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0" Content="" />
     </Grid>
 </Window>
