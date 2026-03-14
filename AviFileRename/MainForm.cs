@@ -1,27 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
-using System.Text.RegularExpressions;
-using System.Globalization;
+using System.Windows.Forms;
 using System.Diagnostics;
+using AviFileRename.Core;
 
 namespace AviFileRename
 {
     public partial class MainForm : Form
     {
-        private const string regex = @"^([a-zA-Z0-9\.\,\'\-\&\!\s]+?)(?:\(\d{4}\))?(?:\sHD)?(?:\sAC3)?(?:\s\d-\d)?(:?(:?.avi$)|(:?.mkv$)|(?:.mp4$))";
+        private readonly FileRenameService _svc = new();
 
         public MainForm()
         {
             InitializeComponent();
         }
 
+        // Rename button — per-file interactive approval using Core's Clean
         private void rename_Click(object sender, EventArgs e)
         {
             FindReplace("avi");
@@ -29,117 +23,97 @@ namespace AviFileRename
             FindReplace("mp4");
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = _sourceTextBox.Text;
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                _sourceTextBox.Text = dialog.SelectedPath;
-            }
-        }
-
-        private void _destButton_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
-            dialog.SelectedPath = _destTextBox.Text;
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                _destTextBox.Text = dialog.SelectedPath;
-            }
-        }
-
         private void FindReplace(string extension)
         {
-            DirectoryInfo info = new DirectoryInfo(_sourceTextBox.Text);
-            foreach (FileInfo file in info.GetFiles("*." + extension, SearchOption.AllDirectories))
+            var info = new DirectoryInfo(_sourceTextBox.Text);
+            foreach (var file in info.GetFiles("*." + extension, SearchOption.AllDirectories))
             {
                 try
                 {
-                    /*Regex reg = new Regex(regex);
-                    Match match = reg.Match(file.Name);*/
-
-                    string fileName = Path.GetFileNameWithoutExtension(file.Name);
+                    var fileName = Path.GetFileNameWithoutExtension(file.Name);
                     if (fileName.ToLower().Contains("sample"))
                         continue;
 
-                    EditFileName editFileName = new EditFileName(fileName, file.DirectoryName, _sourceTextBox.Text);
+                    var suggested = _svc.Clean(fileName);
 
-                    if (editFileName.ShowDialog() == DialogResult.OK)
-                    {
-                        string subTitles = file.DirectoryName + "\\" + fileName + ".srt";
+                    // Skip if nothing changed
+                    if (suggested == fileName)
+                        continue;
 
-                        if (File.Exists(subTitles))
-                        {
-                            FileInfo subs = new FileInfo(subTitles);
+                    var dlg = new EditFileName(fileName, suggested, file.DirectoryName!, _sourceTextBox.Text, _svc.Clean);
+                    if (dlg.ShowDialog() != DialogResult.OK)
+                        continue;
 
-                            string subtemp = file.DirectoryName + "\\" + editFileName.FileName + ".srt";
-                            subs.MoveTo(subtemp);
-                        }
+                    var newName = dlg.FileName;
 
-                        string temp = file.DirectoryName + "\\" + editFileName.FileName + "." + extension;
-                        file.MoveTo(temp);
-                    }
+                    // Co-rename subtitle
+                    var oldSub = Path.Combine(file.DirectoryName!, fileName + ".srt");
+                    if (File.Exists(oldSub))
+                        File.Move(oldSub, Path.Combine(file.DirectoryName!, newName + ".srt"));
+
+                    file.MoveTo(Path.Combine(file.DirectoryName!, newName + "." + extension));
                 }
                 catch (Exception ex)
                 {
                     if (MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OKCancel) != DialogResult.OK)
-                    {
                         continue;
-                    }
                 }
             }
         }
 
-        /// <summary>
-        /// Copy all the files from the source and all its child directories, to the source
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // Source browse
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var dialog = new FolderBrowserDialog { SelectedPath = _sourceTextBox.Text };
+            if (dialog.ShowDialog() == DialogResult.OK)
+                _sourceTextBox.Text = dialog.SelectedPath;
+        }
+
+        // Dest browse
+        private void _destButton_Click(object sender, EventArgs e)
+        {
+            var dialog = new FolderBrowserDialog { SelectedPath = _destTextBox.Text };
+            if (dialog.ShowDialog() == DialogResult.OK)
+                _destTextBox.Text = dialog.SelectedPath;
+        }
+
+        // Flatten — move all video/subtitle files from subdirs into source root
         private void collapseFlatten_Click(object sender, EventArgs e)
         {
-            Collapse("avi", _sourceTextBox.Text, _sourceTextBox.Text, SearchOption.AllDirectories);
-            Collapse("mkv", _sourceTextBox.Text, _sourceTextBox.Text, SearchOption.AllDirectories);
-            Collapse("mp4", _sourceTextBox.Text, _sourceTextBox.Text, SearchOption.AllDirectories);
-            Collapse("srt", _sourceTextBox.Text, _sourceTextBox.Text, SearchOption.AllDirectories);
-            
+            Cursor = Cursors.WaitCursor;
+            try
+            {
+                _svc.CollapseAsync(_sourceTextBox.Text, _sourceTextBox.Text,
+                    SearchOption.AllDirectories,
+                    new[] { "avi", "mkv", "mp4", "srt" }).GetAwaiter().GetResult();
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
         }
 
-        /// <summary>
-        /// Move all the files to a different location
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        // Collapse to dest — move top-level files to destination folder
         private void collapseToDest_Click(object sender, EventArgs e)
         {
-            Collapse("avi", _sourceTextBox.Text, _destTextBox.Text, SearchOption.TopDirectoryOnly);
-            Collapse("mkv", _sourceTextBox.Text, _destTextBox.Text, SearchOption.TopDirectoryOnly);
-            Collapse("mp4", _sourceTextBox.Text, _destTextBox.Text, SearchOption.TopDirectoryOnly);
-            Collapse("srt", _sourceTextBox.Text, _destTextBox.Text, SearchOption.TopDirectoryOnly);
-        }
-
-        private void Collapse(string extension, string source, string destination, SearchOption searchOption)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            DirectoryInfo info = new DirectoryInfo(source);
-            foreach (FileInfo file in info.GetFiles("*." + extension, searchOption))
+            Cursor = Cursors.WaitCursor;
+            try
             {
-                try
-                {
-                    File.Move(file.FullName, destination + @"\" + file.Name);
-                }
-                catch (Exception )
-                {
-                }
+                _svc.CollapseAsync(_sourceTextBox.Text, _destTextBox.Text,
+                    SearchOption.TopDirectoryOnly,
+                    new[] { "avi", "mkv", "mp4", "srt" }).GetAwaiter().GetResult();
             }
-
-            this.Cursor = Cursors.Default;
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
         }
 
+        // Open source folder in Explorer
         private void button1_Click(object sender, EventArgs e)
         {
-            var psi = new ProcessStartInfo() { FileName = _sourceTextBox.Text, UseShellExecute = true };
+            var psi = new ProcessStartInfo { FileName = _sourceTextBox.Text, UseShellExecute = true };
             Process.Start(psi);
         }
-    } //class
-} //namespace
+    }
+}
