@@ -147,14 +147,11 @@ namespace AviFileRename.Core
                 var season = int.Parse(multi.Groups["season"].Value);
                 var ep1 = int.Parse(multi.Groups["ep1"].Value);
                 var ep2 = int.Parse(multi.Groups["ep2"].Value);
-                var extra = multi.Groups["extra"].Value.Trim();
+                // If the title ends with a year (e.g. "Show 2021"), remove it for TV entries
+                title = Regex.Replace(title, "\\s*\\b\\d{4}\\b$", "", RegexOptions.Compiled);
 
                 var baseName = $"{title} S{season:00}E{ep1:00}-E{ep2:00}";
-                if (!string.IsNullOrEmpty(extra))
-                {
-                    baseName += " - " + extra;
-                }
-
+                // Do not append trailing "extra" metadata for TV episode entries
                 return baseName;
             }
 
@@ -177,14 +174,11 @@ namespace AviFileRename.Core
                     episode = int.Parse(tv.Groups["episode"].Value);
                 }
 
-                var extra = tv.Groups["extra"].Value.Trim();
+                // If the title ends with a year (e.g. "Show 2021"), remove it for TV entries
+                title = Regex.Replace(title, "\\s*\\b\\d{4}\\b$", "", RegexOptions.Compiled);
 
                 var baseName = $"{title} S{season:00}E{episode:00}";
-                if (!string.IsNullOrEmpty(extra))
-                {
-                    baseName += " - " + extra;
-                }
-
+                // Do not append trailing "extra" metadata for TV episode entries
                 return baseName;
             }
 
