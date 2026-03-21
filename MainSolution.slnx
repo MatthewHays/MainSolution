@@ -7,7 +7,7 @@
   <Project Path="AviFileRename.Core/AviFileRename.Core.csproj" />
   <Project Path="AviFileRename.Tests/AviFileRename.Tests.csproj" />
   <Project Path="AviFileRename.Wpf/AviFileRename.Wpf.csproj" />
-  <Project Path="AviFileRename/AviFileRename.csproj" />
+  <Project Path="AviFileRename.Winforms/AviFileRename.Winforms.csproj" />
   <Project Path="EntityCacheLib/EntityCacheLib.csproj" />
   <Project Path="EntityClientServerLib/EntityClientServerLib.csproj" />
   <Project Path="EntityConnectionTest/EntityConnectionTest.csproj" />

@@ -23,5 +23,9 @@
   <ItemGroup>
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.6" />
+    <!-- Explicit references to address known vulnerable transitive packages -->
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.IO.Packaging" Version="6.0.1" />
+    <PackageReference Include="System.Formats.Asn1" Version="6.0.1" />
   </ItemGroup>
 </Project>
