@@ -204,23 +204,33 @@ namespace AviFileRename.Core
             int count = 0;
             foreach (var entry in files)
             {
-                var dir = Path.GetDirectoryName(entry.OriginalPath);
-                var oldName = Path.GetFileNameWithoutExtension(entry.OriginalPath);
-                var newPath = Path.Combine(dir ?? string.Empty, entry.SuggestedName + "." + entry.Extension);
-                if (entry.OriginalPath != newPath && !File.Exists(newPath))
-                {
-                    await Task.Run(() => File.Move(entry.OriginalPath, newPath));
-                    count++;
-                    // Co-rename subtitle if present
-                    var oldSub = Path.Combine(dir ?? string.Empty, oldName + ".srt");
-                    var newSub = Path.Combine(dir ?? string.Empty, entry.SuggestedName + ".srt");
-                    if (File.Exists(oldSub) && !File.Exists(newSub))
-                    {
-                        await Task.Run(() => File.Move(oldSub, newSub));
-                    }
-                }
+                var renamed = await RenameFileAsync(entry);
+                if (renamed) count++;
             }
             return count;
+        }
+
+        /// <summary>
+        /// Rename a single file entry. Returns true if the file was renamed.
+        /// </summary>
+        public async Task<bool> RenameFileAsync(FileEntry entry)
+        {
+            var dir = Path.GetDirectoryName(entry.OriginalPath);
+            var oldName = Path.GetFileNameWithoutExtension(entry.OriginalPath);
+            var newPath = Path.Combine(dir ?? string.Empty, entry.SuggestedName + "." + entry.Extension);
+            if (entry.OriginalPath != newPath && !File.Exists(newPath))
+            {
+                await Task.Run(() => File.Move(entry.OriginalPath, newPath));
+                // Co-rename subtitle if present
+                var oldSub = Path.Combine(dir ?? string.Empty, oldName + ".srt");
+                var newSub = Path.Combine(dir ?? string.Empty, entry.SuggestedName + ".srt");
+                if (File.Exists(oldSub) && !File.Exists(newSub))
+                {
+                    await Task.Run(() => File.Move(oldSub, newSub));
+                }
+                return true;
+            }
+            return false;
         }
 
         public async Task<int> CollapseAsync(string source, string destination, SearchOption searchOption, string[] extensions)

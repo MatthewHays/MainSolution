@@ -63,7 +63,8 @@ namespace AviFileRename.Tests
 
         [Theory]
         [InlineData("Breaking.Bad.S05E14.720p.HDTV.x264-KILLERS", "Breaking Bad S05E14")]
-        [InlineData("Firefly.1x02.The.Train.Job.HDTV", "Firefly S01E02 - The Train Job")]
+        [InlineData("Firefly.1x02.The.Train.Job.HDTV", "Firefly S01E02")]
+        [InlineData("Foundation.2021.S03E01.720p.x264-FENiX", "Foundation S03E01")]
         [InlineData("Some.Show.102.HDTV", "Some Show S01E02")]
         public void Clean_SingleEpisodeTv(string input, string expected)
         {

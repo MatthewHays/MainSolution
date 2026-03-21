@@ -25,7 +25,7 @@ public partial class MainWindow : Window
     {
         RenameFilesButton.IsEnabled = !busy;
         FlattenFolderButton.IsEnabled = !busy;
-        MoveToDestButton.IsEnabled = !busy;
+        //MoveToDestButton.IsEnabled = !busy;
         Cursor = busy ? System.Windows.Input.Cursors.Wait : System.Windows.Input.Cursors.Arrow;
     }
 
@@ -66,8 +66,25 @@ public partial class MainWindow : Window
                 SetStatus($"No video files found in {source}");
                 return;
             }
-            int count = await _renameService.RenameFilesAsync(files);
-            SetStatus($"Renamed {count} files.");
+
+            int totalRenamed = 0;
+            foreach (var entry in files)
+            {
+                // Prompt the user to confirm and optionally edit the suggested name
+                var newName = PromptForFileRename(entry);
+                if (newName == null)
+                {
+                    // user cancelled for this file; skip it
+                    continue;
+                }
+
+                // Update the suggested name with user's input and perform rename
+                entry.SuggestedName = newName;
+                var renamed = await _renameService.RenameFileAsync(entry);
+                if (renamed) totalRenamed++;
+            }
+
+            SetStatus($"Renamed {totalRenamed} files.");
         }
         catch (Exception ex)
         {
@@ -77,6 +94,65 @@ public partial class MainWindow : Window
         {
             SetBusy(false);
         }
+    }
+
+    private string? PromptForFileRename(AviFileRename.Core.FileEntry entry)
+    {
+        // Use a simple WinForms dialog to allow the user to confirm or edit the suggested name
+        using var form = new System.Windows.Forms.Form()
+        {
+            Width = 560,
+            Height = 170,
+            Text = "Confirm Rename",
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        };
+
+        var label = new System.Windows.Forms.Label()
+        {
+            Left = 10,
+            Top = 10,
+            Width = 520,
+            Text = $"Original: {Path.GetFileName(entry.OriginalPath)}"
+        };
+
+        var tb = new System.Windows.Forms.TextBox()
+        {
+            Left = 10,
+            Top = 35,
+            Width = 520,
+            Text = entry.SuggestedName
+        };
+
+        var ok = new System.Windows.Forms.Button()
+        {
+            Text = "OK",
+            Left = 350,
+            Width = 80,
+            Top = 70,
+            DialogResult = System.Windows.Forms.DialogResult.OK
+        };
+
+        var cancel = new System.Windows.Forms.Button()
+        {
+            Text = "Cancel",
+            Left = 440,
+            Width = 80,
+            Top = 70,
+            DialogResult = System.Windows.Forms.DialogResult.Cancel
+        };
+
+        form.Controls.AddRange(new System.Windows.Forms.Control[] { label, tb, ok, cancel });
+        form.AcceptButton = ok;
+        form.CancelButton = cancel;
+
+        var result = form.ShowDialog();
+        if (result == System.Windows.Forms.DialogResult.OK)
+        {
+            var candidate = tb.Text?.Trim() ?? string.Empty;
+            return candidate;
+        }
+
+        return null;
     }
 
     private async void FlattenFolderButton_Click(object sender, RoutedEventArgs e)
