@@ -98,58 +98,17 @@ public partial class MainWindow : Window
 
     private string? PromptForFileRename(AviFileRename.Core.FileEntry entry)
     {
-        // Use a simple WinForms dialog to allow the user to confirm or edit the suggested name
-        using var form = new System.Windows.Forms.Form()
+        var dlg = new ConfirmRenameWindow()
         {
-            Width = 560,
-            Height = 170,
-            Text = "Confirm Rename",
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+            Owner = this,
+            SuggestedName = entry.SuggestedName,
+            OriginalFileName = entry.OriginalPath
         };
 
-        var label = new System.Windows.Forms.Label()
+        var result = dlg.ShowDialog();
+        if (result == true)
         {
-            Left = 10,
-            Top = 10,
-            Width = 520,
-            Text = $"Original: {Path.GetFileName(entry.OriginalPath)}"
-        };
-
-        var tb = new System.Windows.Forms.TextBox()
-        {
-            Left = 10,
-            Top = 35,
-            Width = 520,
-            Text = entry.SuggestedName
-        };
-
-        var ok = new System.Windows.Forms.Button()
-        {
-            Text = "OK",
-            Left = 350,
-            Width = 80,
-            Top = 70,
-            DialogResult = System.Windows.Forms.DialogResult.OK
-        };
-
-        var cancel = new System.Windows.Forms.Button()
-        {
-            Text = "Cancel",
-            Left = 440,
-            Width = 80,
-            Top = 70,
-            DialogResult = System.Windows.Forms.DialogResult.Cancel
-        };
-
-        form.Controls.AddRange(new System.Windows.Forms.Control[] { label, tb, ok, cancel });
-        form.AcceptButton = ok;
-        form.CancelButton = cancel;
-
-        var result = form.ShowDialog();
-        if (result == System.Windows.Forms.DialogResult.OK)
-        {
-            var candidate = tb.Text?.Trim() ?? string.Empty;
-            return candidate;
+            return dlg.SuggestedName?.Trim() ?? string.Empty;
         }
 
         return null;
