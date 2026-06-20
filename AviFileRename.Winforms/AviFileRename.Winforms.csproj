@@ -17,7 +17,7 @@
     <Content Include="SLUI.exe_I0003_0409.ico" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="log4net" Version="2.0.14" />
+    <PackageReference Include="log4net" Version="3.3.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AviFileRename.Core\AviFileRename.Core.csproj" />
